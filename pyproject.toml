@@ -1,0 +1,7 @@
+[project]
+name = "agentic-container"
+version = "1.0.0"
+description = "Allows use of agentic AI within Docker containers"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

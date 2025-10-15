@@ -1,0 +1,18 @@
+services:
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # target: dev
+    # command: uv sync --dev
+    env_file:
+      - .env
+    # expose:
+    # ports:
+    volumes:
+      - config:/home/developer/.config/
+      # You'll want to customize this!
+      - $HOME/Code/SFU:/app/code
+
+volumes:
+  config:
