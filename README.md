@@ -17,6 +17,8 @@ $ just setup
 
 $ just build
 
+# Modify the code volume mount in `docker-compose.yml`.
+
 $ just shell
 
 [remote] $ goose configure
