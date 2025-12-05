@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/home/code/src
 ENV UV_LINK_MODE=copy
 
-ENV PATH="$PATH:/root/.local/bin"
+ENV PATH="$PATH:/home/developer/.local/bin"
 
 ENV OS_DEPENDENCIES="sudo curl git vim ripgrep rustup"
 
@@ -18,6 +18,11 @@ RUN rustup default stable && \
     rustup update
 
 RUN mkdir -p /app/code
+
+RUN useradd developer --group=staff --create-home --shell /bin/bash && \
+    chown -R developer:staff /app/code
+
+USER developer
 
 COPY install_goose.sh /home/developer/install_goose.sh
 

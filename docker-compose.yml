@@ -3,16 +3,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      # target: dev
     # command: uv sync --dev
     env_file:
       - .env
-    # expose:
-    # ports:
     volumes:
-      - config:/home/developer/.config/
-      # You'll want to customize this!
+      # Either keep the config on your host...
+      - $HOME/.config/goose:/home/developer/.config/goose
+      # ...or use a persistent volume within Docker.
+      # - config:/home/developer/.config
+      # FIXME: You'll want to customize this to match the directories you want
+      #     to share.
       - $HOME/Code/SFU:/app/code
 
-volumes:
-  config:
+# volumes:
+#   config:
